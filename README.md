@@ -1,67 +1,27 @@
-📌 Overview
-This project analyzes global life expectancy trends using SQL. It includes data cleaning, validation, exploratory analysis, and advanced SQL techniques such as GROUP BY aggregations, HAVING filters, CASE logic, window functions, rolling totals, and time‑series calculations. The goal is to demonstrate practical SQL proficiency in analytical workflows, KPI development, and deriving meaningful insights from real‑world health and demographic data.
+World Life Expectancy SQL Project
+The World Life Expectancy dataset provides global health indicators across multiple countries and years. This project uses SQL to explore life expectancy trends, identify key health patterns, and analyze relationships between variables such as GDP, BMI, and development status. The goal is to demonstrate strong SQL analytical skills while uncovering meaningful insights about global health outcomes.
 
-📊 Dataset Description
-The dataset (world_life_expectancy) contains global health indicators across multiple countries and years.
+Objective
+The purpose of this project is to answer a series of data‑driven questions about global life expectancy. Using SQL, the analysis focuses on identifying long‑term trends, comparing developed and developing countries, evaluating the impact of economic and health indicators, and performing time‑series calculations. These insights can support public health research, policy discussions, and data‑driven decision‑making.
 
-Key fields include:
+Data Used
+The dataset contains global health and demographic information for countries between 2000 and 2015. It includes both numeric and categorical variables that support exploratory, comparative, and time‑series analysis.
 
-Country
-
-Year
-
+Fact‑Style Fields
 Life Expectancy
 
 BMI
 
 GDP
 
+Dimension‑Style Fields
+Country
+
+Year
+
 Status (Developed / Developing)
 
-Other demographic indicators
+Population Indicators (varies by dataset version)
 
-Dataset size: ~2,900 rows
-Time span: 2000–2015
-Source: Public dataset (commonly found on Kaggle)
-
-🎯 Objectives
-This analysis explores several core questions:
-
-How does life expectancy vary across countries and development status?
-
-What relationships exist between GDP, BMI, and life expectancy?
-
-Which countries show the largest improvements over time?
-
-How do rolling averages and running totals reveal long‑term health trends?
-
-What patterns emerge when comparing developed vs. developing nations?
-
-🛠 SQL Techniques Used
-This project demonstrates a wide range of SQL skills:
-
-Data cleaning & validation
-
-Handling missing values
-
-GROUP BY + HAVING
-
-CASE statements
-
-Window functions:
-
-PARTITION BY
-
-ORDER BY
-
-Running totals
-
-Rolling averages
-
-Subqueries
-
-Time‑series analysis
-
-Exploratory aggregations
-
-Trend comparisons
+Source
+The dataset originates from the publicly available World Life Expectancy dataset (commonly found on Kaggle). It includes country‑level health metrics compiled from global health organizations and statistical agencies.
