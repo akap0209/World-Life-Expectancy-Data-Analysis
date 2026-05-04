@@ -1,27 +1,82 @@
-# World Life Expectancy SQL Project
-The World Life Expectancy dataset provides global health indicators across multiple countries and years. This project uses SQL to explore life expectancy trends, identify key health patterns, and analyze relationships between variables such as GDP, BMI, and development status. The goal is to demonstrate strong SQL analytical skills while uncovering meaningful insights about global health outcomes.
+# 🌍 World Life Expectancy SQL Project
 
-## Objective
-The purpose of this project is to answer a series of data‑driven questions about global life expectancy. Using SQL, the analysis focuses on identifying long‑term trends, comparing developed and developing countries, evaluating the impact of economic and health indicators, and performing time‑series calculations. These insights can support public health research, policy discussions, and data‑driven decision‑making.
+## 📌 Project Overview
+This project performs an **Exploratory Data Analysis (EDA)** on the World Life Expectancy dataset using SQL to uncover global health trends and the factors that influence life expectancy across countries. The analysis examines long‑term changes in life expectancy, compares health outcomes across economic and development groups, and evaluates how variables such as GDP, BMI, and adult mortality relate to overall population health.
 
-## Data Used
-The dataset contains global health and demographic information for countries between 2000 and 2015. It includes both numeric and categorical variables that support exploratory, comparative, and time‑series analysis.
+---
 
-## Fact‑Style Fields
-Life Expectancy
+## 🎯 Objective
+The purpose of this project is to answer data‑driven questions about global life expectancy using SQL. The analysis focuses on:
 
-BMI
+- Identifying long‑term life expectancy trends  
+- Comparing developed vs. developing countries  
+- Evaluating the impact of GDP, BMI, and mortality indicators  
+- Performing time‑series calculations using window functions  
+- Highlighting global health disparities and patterns  
 
-GDP
+These insights support public health research, policy discussions, and data‑driven decision‑making.
 
-## Dimension‑Style Fields
-Country
+---
 
-Year
+## 📊 Data Used
 
-Status (Developed / Developing)
+The dataset includes global health and demographic information for countries between **2000 and 2015**.
 
-Population Indicators (varies by dataset version)
+### **Fact‑Style Fields**
+- Life Expectancy  
+- BMI  
+- GDP  
 
-## Source
-The dataset originates from the publicly available World Life Expectancy dataset (commonly found on Kaggle). It includes country‑level health metrics compiled from global health organizations and statistical agencies.
+### **Dimension‑Style Fields**
+- Country  
+- Year  
+- Status (Developed / Developing)  
+- Population Indicators (varies by dataset version)
+
+### **Source**
+Publicly available **World Life Expectancy** dataset (commonly found on Kaggle), compiled from global health organizations and statistical agencies.
+
+---
+
+## 🛠 SQL Techniques Used
+- Aggregations (MIN, MAX, AVG, SUM)  
+- Filtering and HAVING clauses  
+- CASE statements  
+- Window functions (PARTITION BY + ORDER BY)  
+- Time‑series analysis  
+- Data validation and cleaning logic  
+- Grouping and ordering for trend analysis  
+
+---
+
+## ⭐ Key Insights
+
+- **Life expectancy increased globally between 2000 and 2015**, with most countries showing steady improvement. Several developing nations experienced the largest gains, highlighting significant progress in public health outcomes.
+
+- **High‑GDP countries consistently outperformed low‑GDP countries** in life expectancy. Countries with GDP ≥ 1500 had substantially higher average life expectancy, reinforcing the strong link between economic stability and population health.
+
+- **Developed countries averaged significantly higher life expectancy** than developing countries. The gap between the two groups remained consistent, emphasizing disparities in healthcare access, infrastructure, and living conditions.
+
+- **BMI levels showed a meaningful relationship with life expectancy.** Countries with extremely low or high BMI tended to have lower life expectancy, suggesting that both malnutrition and obesity correlate with poorer health outcomes.
+
+- **Global life expectancy trended upward year‑over‑year**, based on average annual calculations. This indicates broad improvements in healthcare, disease prevention, and living standards worldwide.
+
+- **Adult mortality analysis revealed clear time‑series patterns**, with cumulative mortality decreasing over time in most countries analyzed. The window function analysis highlighted how mortality trends evolve across years.
+
+- **Countries with the highest GDP also tended to have the highest life expectancy**, while countries with the lowest GDP ranked at the bottom of both metrics, underscoring persistent global inequality.
+
+---
+
+## 🧩 Sample Queries
+
+### **Life Expectancy Change Over 15 Years**
+```sql
+SELECT Country, 
+MIN(`Life expectancy`),
+MAX(`Life expectancy`),
+ROUND(MAX(`Life expectancy`) - MIN(`Life expectancy`), 1) AS Life_Increase_15_Years
+FROM world_life_expectancy
+GROUP BY Country
+HAVING MIN(`Life expectancy`) <> 0
+AND MAX(`Life expectancy`) <> 0
+ORDER BY Life_Increase_15_Years;
